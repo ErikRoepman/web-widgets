@@ -8,6 +8,11 @@ import { translateZoom } from "../utils/zoom";
 import { DivIcon, latLngBounds, Icon as LeafletIcon } from "leaflet";
 import { baseMapLayer } from "../utils/leaflet";
 
+// Added
+import { useMapEvents } from "react-leaflet";
+import { LatLngBounds } from "leaflet";
+//
+
 export interface LeafletProps extends SharedProps {
     mapProvider: MapProviderEnum;
     attributionControl: boolean;
@@ -51,6 +56,24 @@ function SetBoundsComponent(props: Pick<LeafletProps, "autoZoom" | "currentLocat
         }
     }
 
+    return null;
+}
+/**
+ * Event component that registers all Leaflet events that might alter the bounds
+ * and exposes a single new event
+ * @param props EventHandler that will receive the current bounds
+ * @returns
+ */
+function BoundsEvent(props: { onBoundsChange: (bounds: LatLngBounds) => void | undefined }): null {
+    const { onBoundsChange } = props;
+    const map = useMapEvents({
+        moveend() {
+            onBoundsChange(map.getBounds());
+        },
+        dragend() {
+            onBoundsChange(map.getBounds());
+        }
+    });
     return null;
 }
 
@@ -119,6 +142,7 @@ export function LeafletMap(props: LeafletProps): ReactElement {
                             </MarkerComponent>
                         ))}
                     <SetBoundsComponent autoZoom={autoZoom} currentLocation={currentLocation} locations={locations} />
+                    <BoundsEvent onBoundsChange={bounds => console.info(bounds)} />
                 </MapContainer>
             </div>
         </div>
