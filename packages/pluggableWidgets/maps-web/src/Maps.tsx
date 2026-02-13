@@ -49,6 +49,12 @@ export default function Maps(props: MapsContainerProps): ReactNode {
             width={props.width}
             widthUnit={props.widthUnit}
             zoomLevel={translateZoom(props.zoom)}
-        />
+            // Pass the Custom props
+            onBoundaryChange={props.onBoundaryChange}
+            northEastLong={props.northEastLong}
+            northEastLat={props.northEastLat}
+            southWestLat={props.southWestLat}
+            southWestLong={props.southWestLong}
+        ></MapSwitcher>
     );
 }

@@ -260,5 +260,43 @@
                 </property>
             </propertyGroup>
         </propertyGroup>
+        <!-- START Custom properties used for the boundaries-->
+        <propertyGroup caption="Custom1">
+            <propertyGroup caption="Boundary">
+                <property key="onBoundaryChange" type="action" defaultType="CallNanoflow">
+                    <caption>On boundary change</caption>
+                    <description>Called when the Boundaries changes</description>
+                </property>
+                <property key="southWestLat" type="attribute" required="false">
+                    <caption>Lat SW</caption>
+                    <description>Latitude attribute, of the southwest boundary</description>
+                    <attributeTypes>
+                        <attributeType name="Decimal" />
+                    </attributeTypes>
+                </property>
+                <property key="southWestLong" type="attribute" required="false">
+                    <caption>Long SW</caption>
+                    <description>Longitude attribute, of the southwest boundary</description>
+                    <attributeTypes>
+                        <attributeType name="Decimal" />
+                    </attributeTypes>
+                </property>
+                <property key="northEastLat" type="attribute" required="false">
+                    <caption>Lat NE</caption>
+                    <description>Latitude attribute, of the northeast boundary</description>
+                    <attributeTypes>
+                        <attributeType name="Decimal" />
+                    </attributeTypes>
+                </property>
+                <property key="northEastLong" type="attribute" required="false">
+                    <caption>Long NE</caption>
+                    <description>Longitude attribute, of the northeast boundary</description>
+                    <attributeTypes>
+                        <attributeType name="Decimal" />
+                    </attributeTypes>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <!-- END Custom properties used for the boundaries-->
     </properties>
 </widget>

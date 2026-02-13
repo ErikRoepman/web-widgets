@@ -1,5 +1,7 @@
 import { Dimensions } from "@mendix/widget-plugin-platform/utils/get-dimensions";
 import { CSSProperties } from "react";
+import { ActionValue, DynamicValue, EditableValue, ListValue, ListActionValue, ListAttributeValue, WebImage } from "mendix";
+
 export interface ModeledMarker {
     address?: string;
     latitude?: number;
@@ -31,4 +33,15 @@ export interface SharedProps extends Dimensions {
     mapsToken?: string;
     className?: string;
     style?: CSSProperties;
+}
+/**
+ * Contains the additional props that have been added to the MapviewerProps by Mendix
+ * Any changes to attributes in the XML must be reflected here
+ */
+export interface CustomProps{
+    onBoundaryChange?: ActionValue;
+    southWestLat?: EditableValue<Big>;
+    southWestLong?: EditableValue<Big>;
+    northEastLat?: EditableValue<Big>;
+    northEastLong?: EditableValue<Big>;
 }

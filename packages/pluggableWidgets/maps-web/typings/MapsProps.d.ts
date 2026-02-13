@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, ListValue, ListActionValue, ListAttributeValue, WebImage } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, ListValue, ListActionValue, ListAttributeValue, WebImage } from "mendix";
 import { Big } from "big.js";
 
 export type LocationTypeEnum = "address" | "latlng";
@@ -97,6 +97,11 @@ export interface MapsContainerProps {
     zoom: ZoomEnum;
     mapProvider: MapProviderEnum;
     googleMapId: string;
+    onBoundaryChange?: ActionValue;
+    southWestLat?: EditableValue<Big>;
+    southWestLong?: EditableValue<Big>;
+    northEastLat?: EditableValue<Big>;
+    northEastLong?: EditableValue<Big>;
 }
 
 export interface MapsPreviewProps {
@@ -133,4 +138,9 @@ export interface MapsPreviewProps {
     zoom: ZoomEnum;
     mapProvider: MapProviderEnum;
     googleMapId: string;
+    onBoundaryChange: {} | null;
+    southWestLat: string;
+    southWestLong: string;
+    northEastLat: string;
+    northEastLong: string;
 }
